@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import './Home.css';
 
 class ProfilePage extends Component {
-  constructor(props) {
-    super(props);
+  showLock() {
+   // Show the Auth0Lock widget
+   console.log('hi', this.props.lock);
+   this.props.auth.login();
   }
 
   render() {
     return (
-      <h1>Hello World</h1>
+      <div className="login-box">
+        <button onClick={this.showLock.bind(this)}>Sign In</button>
+      </div>
     );
   }
 }
