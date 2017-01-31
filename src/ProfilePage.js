@@ -4,7 +4,6 @@ import './Home.css';
 class ProfilePage extends Component {
   showLock() {
    // Show the Auth0Lock widget
-   console.log('hi', this.props.lock);
    this.props.auth.login();
   }
 
