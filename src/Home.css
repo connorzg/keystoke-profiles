@@ -2,3 +2,8 @@ img {
   border-radius: 100%;
   max-height: 150px;
 }
+
+.home {
+  display: flex;
+  flex-direction: row;
+}

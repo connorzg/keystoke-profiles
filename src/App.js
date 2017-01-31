@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import AuthService from './utils/AuthService';
 import ProfilePage from './ProfilePage';
 import Home from './Home';
-import DATA from '../data';
 
 class App extends Component {
   constructor(props) {
