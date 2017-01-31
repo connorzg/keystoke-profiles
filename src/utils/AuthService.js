@@ -18,6 +18,7 @@ export default class AuthService {
   _doAuthentication(authResult) {
     // Saves the user token
     this.setToken(authResult.idToken);
+    location.reload();
   }
 
   login() {
@@ -44,5 +45,6 @@ export default class AuthService {
   logout() {
     // Clear user token and profile data from local storage
     localStorage.removeItem('id_token');
+    location.reload();
   }
 }

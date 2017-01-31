@@ -19,7 +19,6 @@ class App extends Component {
     if (this.auth.loggedIn()) {
       let idToken = this.auth.getToken();
       this.setState({ idToken });
-      this.auth.setToken(idToken);
     }
   }
 
