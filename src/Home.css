@@ -64,6 +64,25 @@ input {
   align-items: center;
 }
 
+.login {
+  background-color: #e7edf5;
+  height: 100%;
+}
+
+.login-box {
+  color: steelblue;
+  padding: 49vh 0;
+}
+
+.login-box button {
+  border: none;
+  background-color: steelblue;
+  padding: 10px 20px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
 /*@media (min-width: 800px) {
   * {
     color: green;

@@ -22,14 +22,6 @@ class Home extends Component {
     // GET all users with 'description' metadata, avoiding users on my other Auth0 instance
     axios.get('https://connorzg.auth0.com/api/v2/users?q=_exists_%3Auser_metadata.description', headers)
       .then((res) => {
-        // Remove current user from users array
-        // const users = res.data.map((user) => {
-        //     if (user.email !== this.state.profile.email) {
-        //       console.log(user);
-        //       return user;
-        //     }
-        // });
-
         this.setState({ users: res.data });
         console.log(res.data);
       })

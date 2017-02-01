@@ -4,11 +4,21 @@ import { isTokenExpired } from './jwtHelper';
 export default class AuthService {
   constructor(clientId, domain) {
     // Configure Auth0
-    this.lock = new Auth0Lock(clientId, domain, {
+    const options = {
+      theme: {
+        logo: 'https://pbs.twimg.com/profile_images/422524049239986176/JxdieGk5.png',
+        primaryColor: "#31445d",
+        foregroundColor: "#31445d"
+      },
+      languageDictionary: {
+        title: "Keystoke Profiles"
+      },
       auth: {
         responseType: 'token'
       }
-    });
+    }
+
+    this.lock = new Auth0Lock(clientId, domain, options);
     // Add callback for lock `authenticated` event
     this.lock.on('authenticated', this._doAuthentication.bind(this));
     // binds login functions to keep this context

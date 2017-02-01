@@ -2,10 +2,16 @@ import React, { Component } from 'react';
 import './Home.css';
 
 class Login extends Component {
+  componentDidMount() {
+    this.props.auth.login();
+  }
+
   render() {
     return (
-      <div className="login-box">
-        <button onClick={this.props.auth.login.bind(this)}>Login</button>
+      <div className="login">
+        <div className="login-box">
+          <h1>Keystoke Profiles</h1>
+        </div>
       </div>
     );
   }
