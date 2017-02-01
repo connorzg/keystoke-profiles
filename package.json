@@ -1,15 +1,19 @@
 {
   "name": "keystoke-profiles",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "homepage": "https://www.connorgarber.com/keystoke-profiles",
   "devDependencies": {
+    "gh-pages": "^0.12.0",
     "react-scripts": "0.8.5"
   },
   "dependencies": {
+    "auth0-lock": "^10.10.2",
     "axios": "^0.15.3",
     "body-parser": "^1.16.0",
     "express": "^4.14.1",
     "foreman": "^2.0.0",
+    "jwt-decode": "^2.1.0",
     "marked": "^0.3.6",
     "mongoose": "^4.8.0",
     "nodemon": "^1.11.0",
@@ -20,6 +24,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
