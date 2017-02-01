@@ -2,14 +2,11 @@ import React, { Component } from 'react';
 import ProfileCard from './ProfileCard';
 
 class Users extends Component {
-
-  componentDidMount() {
-
-  }
-
   mapUsers() {
-    return this.props.users.map(function(user, index) {
-       return (<ProfileCard key={index} user={user}/>);
+    return this.props.users.map((user, index) => {
+      if (user.email !== this.props.userEmail) {
+        return (<ProfileCard key={index} user={user}/>);
+      }
     })
   }
 

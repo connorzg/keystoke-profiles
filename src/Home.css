@@ -14,11 +14,6 @@ p {
   font-family: serif;
 }
 
-/*.home {
-  display: flex;
-  flex-direction: row;
-}*/
-
 .buttons {
   display: flex;
   flex-direction: column;
@@ -53,11 +48,6 @@ input {
   margin-bottom: 15px;
 }
 
-button {
-  /*padding: 10px;
-  margin: 20px;*/
-}
-
 .currentUser {
   background-color: steelblue;
   display: flex;
@@ -74,7 +64,8 @@ button {
   align-items: center;
 }
 
-/*
-.currentUser {
-  flex: 1;
+/*@media (min-width: 800px) {
+  * {
+    color: green;
+  }
 }*/
