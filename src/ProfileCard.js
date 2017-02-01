@@ -5,12 +5,12 @@ class ProfileCard extends Component {
   render() {
     const { user } = this.props;
     return (
-      <div className="home">
+      <div className="users">
+        <img src={user.user_metadata.picture} alt='user' />
         <div>
-          <img src={user.picture} alt='user' />
-          <h3>{user.name}</h3>
+          <h3>{user.user_metadata.name}</h3>
+          <p>{user.user_metadata.description}</p>
         </div>
-        <p>{user.user_metadata.description}</p>
       </div>
     )
   }

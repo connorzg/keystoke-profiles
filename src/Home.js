@@ -40,7 +40,10 @@ class Home extends Component {
       }
     }).then((res) => {
         console.log(res.data);
-        this.setState({profile: res.data}, () => this.setState({editMode: false}));
+        this.setState({profile: res.data}, () => {
+          this.setState({editMode: false});
+          this.getAllUsers();
+        });
       });
   }
 
@@ -63,8 +66,6 @@ class Home extends Component {
       if (!profile.user_metadata) {
         this.patchMetadata(profile);
       }
-
-      this.setState({editMode: true});
     });
   }
 
@@ -73,24 +74,34 @@ class Home extends Component {
     if (!this.state.editMode) {
       return (
         <div className="home">
-          <div>
+          <div className="currentUser">
             <img src={profile.picture} alt='user' />
-            <h2>{profile.name}</h2>
-            <p>{profile.description}</p>
-            <button onClick={this.props.auth.logout.bind(this)}>Logout</button>
+            <div>
+              <h3>{profile.name}</h3>
+              <p>{profile.description}</p>
+            </div>
+
+            <div className="buttons">
+              <button onClick={() => this.setState({editMode: true})}>Edit</button>
+              <button onClick={this.props.auth.logout.bind(this)}>Logout</button>
+            </div>
           </div>
           <Users users={this.state.users} />
         </div>
       );
     } else {
       return (
-        <div>
+        <div className="form">
           <img src={profile.picture} alt='user' />
-          <input type="text" value={profile.name} onChange={this.handleInputChange.bind(this)} name='name' placeholder="Name" />
-          <label>
-            Describe Yourself:
-            <input type="text" placeholder="Description" value={profile.description} name="description" onChange={this.handleInputChange.bind(this)} />
-          </label>
+            <p>Enter a new image URL if you would like to change the current one</p>
+            <input size="80" type="text" value={profile.picture} onChange={this.handleInputChange.bind(this)} name='picture' placeholder="Image URL" />
+
+            <p>Do you go by another name?</p>
+            <input type="text" value={profile.name} onChange={this.handleInputChange.bind(this)} name='name' placeholder="Name" />
+
+            <p>Describe Yourself:</p>
+            <textarea rows="8" cols="80" type="text" placeholder="Description" value={profile.description} name="description" onChange={this.handleInputChange.bind(this)} />
+
           <button onClick={this.patchMetadata.bind(this, this.state.profile)}>Submit</button>
         </div>
       )
