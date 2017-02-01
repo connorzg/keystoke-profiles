@@ -33,8 +33,8 @@ class Home extends Component {
       headers: { authorization: `Bearer ${this.props.idToken}` },
       data: {
         user_metadata: {
-          name: profile.name,
-          picture: profile.picture,
+          name: profile.user_metadata.name || profile.name,
+          picture: profile.user_metadata.picture,
           description: profile.user_metadata.description || ''
         }
       }
@@ -94,15 +94,17 @@ class Home extends Component {
         <div className="form">
           <img src={profile.picture} alt='user' />
             <p>Enter a new image URL if you would like to change the current one</p>
-            <input size="80" type="text" value={profile.picture} onChange={this.handleInputChange.bind(this)} name='picture' placeholder="Image URL" />
+            <input size="40" type="text" value={profile.picture} onChange={this.handleInputChange.bind(this)} name='picture' placeholder="Image URL" />
 
             <p>Do you go by another name?</p>
             <input type="text" value={profile.name} onChange={this.handleInputChange.bind(this)} name='name' placeholder="Name" />
 
             <p>Describe Yourself:</p>
-            <textarea rows="8" cols="80" type="text" placeholder="Description" value={profile.description} name="description" onChange={this.handleInputChange.bind(this)} />
-
-          <button onClick={this.patchMetadata.bind(this, this.state.profile)}>Submit</button>
+            <textarea rows="8" cols="50" type="text" placeholder="Description" value={profile.description} name="description" onChange={this.handleInputChange.bind(this)} />
+          <div>
+            <button onClick={this.patchMetadata.bind(this, this.state.profile)}>Submit</button>
+            <button onClick={() => this.setState({editMode: false})}>Cancel</button>
+          </div>
         </div>
       )
     }
