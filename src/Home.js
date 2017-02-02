@@ -23,7 +23,6 @@ class Home extends Component {
     axios.get('https://connorzg.auth0.com/api/v2/users?q=_exists_%3Auser_metadata.description', headers)
       .then((res) => {
         this.setState({ users: res.data });
-        console.log(res.data);
       })
   }
 
@@ -59,12 +58,10 @@ class Home extends Component {
   }
 
   editMode() {
-    console.log(this.state.profile);
     this.setState({editMode: true, backupProfile: this.state.profile});
   }
 
   revertEditMode() {
-    console.log(this.state.profile);
     this.setState({editMode: false, profile: this.state.backupProfile});
   }
 
@@ -97,7 +94,7 @@ class Home extends Component {
               {(src) => <img src={src} alt='user'/>}
             </ProgressiveImage>
 
-            <div>
+            <div className="bio">
               <h3>{profile.name}</h3>
               <p>{profile.description}</p>
             </div>
@@ -119,17 +116,17 @@ class Home extends Component {
           </ProgressiveImage>
 
           <p>Enter a URL for a new profile picture:</p>
-          <input size="40" type="text" value={profile.picture} onChange={this.handleInputChange.bind(this)} name='picture' placeholder="Image URL" />
+          <input size="45" type="text" value={profile.picture} onChange={this.handleInputChange.bind(this)} name='picture' placeholder="Image URL" />
 
           <p>Do you go by another name?</p>
           <input type="text" value={profile.name} onChange={this.handleInputChange.bind(this)} name='name' placeholder="Name" />
 
           <p>Describe Yourself:</p>
-          <textarea rows="8" cols="50" type="text" placeholder="Description" value={profile.description} name="description" onChange={this.handleInputChange.bind(this)} />
+          <textarea rows="12" cols="44" type="text" placeholder="Description" value={profile.description} name="description" onChange={this.handleInputChange.bind(this)} />
 
           <div>
-            <button onClick={this.patchMetadata.bind(this, this.state.profile)}>Submit</button>
-            <button onClick={this.revertEditMode.bind(this)}>Cancel</button>
+            <button className="formButton" onClick={this.revertEditMode.bind(this)}>Cancel</button>
+            <button className="formButton" onClick={this.patchMetadata.bind(this, this.state.profile)}>Submit</button>
           </div>
         </div>
       );

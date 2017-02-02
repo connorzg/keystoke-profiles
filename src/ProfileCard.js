@@ -11,8 +11,8 @@ class ProfileCard extends Component {
           {(src) => <img src={src} alt='user'/>}
         </ProgressiveImage>
         <div>
-          <h3>{user.user_metadata.name}</h3>
-          <p>{user.user_metadata.description}</p>
+          <h3 className="user-name">{user.user_metadata.name}</h3>
+          <p className="user-description">{user.user_metadata.description}</p>
         </div>
       </div>
     )
