@@ -86,23 +86,27 @@ class Home extends Component {
     // Conditional rendering of Home page or profile edit page
     if (!this.state.editMode) {
       return (
-        <div className="home">
-          <div className="currentUser">
+        <div>
+          <div className="user-container">
+            <div className="current-user">
 
-            {/*  ProgressiveImage was implemented due to the drastic resizing as images finish loading  */}
-            <ProgressiveImage src={profile.picture} placeholder={require('../public/placeholder.png')}>
-              {(src) => <img src={src} alt='user'/>}
-            </ProgressiveImage>
+              {/*  ProgressiveImage was implemented due to the drastic resizing as images finish loading  */}
+              <div className="user-image">
+                <ProgressiveImage src={profile.picture} placeholder={require('../public/placeholder.png')}>
+                  {(src) => <img src={src} alt='user'/>}
+                </ProgressiveImage>
+              </div>
 
-            <div className="bio">
-              <h3>{profile.name}</h3>
-              <p>{profile.description}</p>
+              <div className="name">
+                <h3>{profile.name}</h3>
+              </div>
+
+              <div className="buttons">
+                <button onClick={this.editMode.bind(this)}>Edit</button>
+                <button onClick={this.props.auth.logout.bind(this)}>Logout</button>
+              </div>
             </div>
-
-            <div className="buttons">
-              <button onClick={this.editMode.bind(this)}>Edit</button>
-              <button onClick={this.props.auth.logout.bind(this)}>Logout</button>
-            </div>
+            <p>{profile.description}</p>
           </div>
 
           <Users userEmail={this.state.profile.email} users={this.state.users} />

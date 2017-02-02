@@ -3,6 +3,7 @@ import './Home.css';
 
 class Login extends Component {
   componentDidMount() {
+    // Open Auth0 widget
     this.props.auth.login();
   }
 

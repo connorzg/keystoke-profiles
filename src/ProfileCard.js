@@ -10,7 +10,7 @@ class ProfileCard extends Component {
         <ProgressiveImage src={user.user_metadata.picture} placeholder={require('../public/placeholder.png')}>
           {(src) => <img src={src} alt='user'/>}
         </ProgressiveImage>
-        <div>
+        <div className="user-info">
           <h3 className="user-name">{user.user_metadata.name}</h3>
           <p className="user-description">{user.user_metadata.description}</p>
         </div>
