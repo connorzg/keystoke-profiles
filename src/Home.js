@@ -41,7 +41,6 @@ class Home extends Component {
         }
       }
     }).then((res) => {
-        console.log(res.data);
         this.setState({profile: res.data}, () => {
           // Refresh user profiles and hide the form after setting current user
           this.setState({ editMode: false });
@@ -98,7 +97,7 @@ class Home extends Component {
               </div>
 
               <div className="name">
-                <h3>{profile.name}</h3>
+                <h2>{profile.name}</h2>
               </div>
 
               <div className="buttons">

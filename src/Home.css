@@ -74,12 +74,13 @@ h3 {
 .form {
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
   align-items: center;
+  margin-top: 40px;
 }
 
 .form p {
   font-family: sans-serif;
+  padding: 0;
 }
 
 input, textarea {
