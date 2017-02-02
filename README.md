@@ -4,7 +4,7 @@
 The app was initialized with `create-react-app` so the build process is straightforward:
 
 * `git clone`
-* `cd /keystoke-profiles && npm i`
+* `cd ./keystoke-profiles && npm i`
 * `npm start` will start your dev server
 
 ### Thought Process
