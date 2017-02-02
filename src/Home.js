@@ -12,7 +12,7 @@ class Home extends Component {
       backupProfile: {},
       users: [],
       editMode: false
-     };
+     }
   }
 
   getAllUsers() {
@@ -23,7 +23,7 @@ class Home extends Component {
     axios.get('https://connorzg.auth0.com/api/v2/users?q=_exists_%3Auser_metadata.description', headers)
       .then((res) => {
         this.setState({ users: res.data });
-      })
+      });
   }
 
   // The profile object cannot be directly mutated so it's mirrored in metadata
@@ -67,7 +67,7 @@ class Home extends Component {
   componentWillMount() {
     // Token generated in App.js is used to get user profile
     this.props.auth.lock.getProfile(this.props.idToken, (err, profile) => {
-      console.log(profile);
+      console.log("Here's a peek at your profile object",profile);
       this.setState({ profile });
 
       this.getAllUsers();

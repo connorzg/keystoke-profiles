@@ -15,7 +15,8 @@ export default class AuthService {
       },
       auth: {
         responseType: 'token'
-      }
+      },
+      closable: false
     }
 
     this.lock = new Auth0Lock(clientId, domain, options);
